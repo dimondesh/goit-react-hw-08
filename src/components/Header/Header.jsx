@@ -10,8 +10,10 @@ const Header = () => {
   const dispatch = useDispatch();
   return (
     <header className="flex">
-      <h2 className="pl-10">Phonebook</h2>
-      {isLoggedIn && <h2 className="pl-10">Welcome, {user.name}</h2>}
+      <h2 className="pl-2 pr-2 md:pl-10">Phonebook</h2>
+      {isLoggedIn && (
+        <h2 className="pl-10 hidden md:inline">Welcome, {user.name}</h2>
+      )}
       <nav className="flex items-center gap-5 ml-auto mr-10">
         {isLoggedIn ? (
           <>

@@ -20,7 +20,7 @@ const Register = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form className="bg-grey rounded-3xl shadow-xl p-4 flex flex-col gap-4 w-1/4">
+        <Form className="bg-grey rounded-3xl shadow-xl p-4 flex flex-col gap-4 w-2/3 md:w-1/4">
           <label className="flex flex-col gap-2">
             <h3 className="text-center font-bold">Register</h3>
             <span>Name:</span>
