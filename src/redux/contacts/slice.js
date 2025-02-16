@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { addContact, deleteContact, fetchContacts } from "./operations";
+import { logoutThunk } from "../auth/operations";
 
 axios.defaults.baseURL = "https://connections-api.goit.global/";
 
@@ -48,6 +49,10 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      // Додаємо обробку виходу
+      .addCase(logoutThunk.fulfilled, (state) => {
+        state.items = [];
       });
   },
 });

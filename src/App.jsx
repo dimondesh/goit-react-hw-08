@@ -6,14 +6,16 @@ import Phonebook from "./pages/Phonebook";
 import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Header from "./components/Header/Header";
-import Layout from "./components/Layout";
+
+import Layout from "./components/Navigation/Layout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { refreshUserThunk } from "./redux/auth/operations";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 import { selectIsRefreshing } from "./redux/auth/selectors";
+import { AuthNav } from "./components/Navigation/AuthNav";
+import { AppBar } from "./components/Navigation/AppBar";
 
 const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -21,10 +23,6 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUserThunk());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
   }, [dispatch]);
 
   return isRefreshing ? null : (
@@ -45,7 +43,7 @@ const App = () => {
           path="/login"
           element={
             <PublicRoute>
-              <Header />
+              <AppBar />
               <Login />
             </PublicRoute>
           }
@@ -54,7 +52,7 @@ const App = () => {
           path="/register"
           element={
             <PublicRoute>
-              <Header />
+              <AppBar />
               <Register />
             </PublicRoute>
           }

@@ -48,7 +48,7 @@ const Login = () => {
               className="text-blue-500 hover:font-bold transition-all duration-200"
               to="/register"
             >
-              Login
+              Register
             </Link>
           </p>
         </Form>
